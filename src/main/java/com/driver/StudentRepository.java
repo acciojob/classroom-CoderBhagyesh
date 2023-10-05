@@ -53,14 +53,14 @@ public class StudentRepository {
 
     public void deleteAllTeachers() {
         for(String teacher:teacherHashMap.keySet()){
-            if(mapDB.containsKey(teacher)) {
-                List<String> stringList = mapDB.get(teacher);
+            if(studentsCorrespondsTeacher.containsKey(teacher)) {
+                List<String> stringList = studentsCorrespondsTeacher.get(teacher);
                 for(String student:stringList) {
                     if (studentHashMap.containsKey(student)){
                         studentHashMap.remove(student);
                     }
                 }
-                mapDB.remove(teacher);
+                studentsCorrespondsTeacher.remove(teacher);
             }
             teacherHashMap.remove(teacher);
         }
